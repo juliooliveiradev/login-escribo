@@ -11,7 +11,7 @@ const signUp = async(req,res)=>{
 
     try {
         const usuarioExistente = await User.findOne({ email });
-    if(!usuarioExistente){
+    if(usuarioExistente){
         return res.status(400).json({ mensagem : 'Email já existente'});
     }
     //senha criptografada

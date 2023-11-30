@@ -7,9 +7,11 @@ const generateToken = (userId) => {
 }
 
 const signUp = async(req,res)=>{
+    const { nome, email, senha, telefones } = req.body;
+
     try {
-        const usuarioExistente = await Usuario.findOne({ email });
-    if(usuarioExistente){
+        const usuarioExistente = await User.findOne({ email });
+    if(!usuarioExistente){
         return res.status(400).json({ mensagem : 'Email já existente'});
     }
     //senha criptografada
@@ -24,13 +26,13 @@ const signUp = async(req,res)=>{
     });
     await novoUsuario.save();
 
-    const token = generateToken(newUser._id);
+    const token = generateToken(novoUsuario._id);
 
     res.json({
-      id: newUser._id,
-      data_criacao: newUser.createdAt,
-      data_atualizacao: newUser.updatedAt,
-      ultimo_login: newUser.lastLogin,
+      id: novoUsuario._id,
+      data_criacao: novoUsuario.createdAt,
+      data_atualizacao: novoUsuario.updatedAt,
+      ultimo_login: novoUsuario.lastLogin,
       token,
     });
     } catch (error) {

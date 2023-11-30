@@ -1,0 +1,32 @@
+{
+  "name": "login-escribo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "nyc npm test",
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "chai-http": "^4.4.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "eslint": "^8.54.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^10.2.0"
+  }
+}

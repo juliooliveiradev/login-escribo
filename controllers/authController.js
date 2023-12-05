@@ -54,7 +54,7 @@ const signIn = async (req, res) => {
         }
 
         usuarioExistente.lastLogin = new Date();
-        await existingUser.save();
+        await usuarioExistente.save();
 
         const token = generateToken(usuarioExistente._id);
 
